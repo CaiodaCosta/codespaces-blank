@@ -9,6 +9,7 @@ public class Program
 
         string[] test       = Filter(inputArr, target => target == "VAI");
         int resultInt       = Find(numbers, target => target == 2);
+        int[] newNumbersArr = Map(numbers, target => target * 2);
     }
 
     private static T? Find<T>(T[] inputArr, Func<T, bool> inputCondition)
@@ -30,6 +31,18 @@ public class Program
         {
             if (inputCondition(currentObj))
                 resultArr = resultArr.Append(currentObj).ToArray();
+        }
+
+        return resultArr;
+    }
+
+    private static T[] Map<T>(T[] inputArr, Func<T, T> inputCondition)
+    {
+        var resultArr = Array.Empty<T>();
+
+        foreach (T currentObj in inputArr)
+        {
+            resultArr = resultArr.Append(inputCondition.Invoke(currentObj)).ToArray();
         }
 
         return resultArr;
