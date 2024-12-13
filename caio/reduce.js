@@ -6,11 +6,9 @@ function reduce(acumulador, arr) {
     for (let i = 0; i < arr.length; i++) {
        
         if (typeof arr[i] === "string"){
-            if (acumulador !== ""){
-                
-            acumulador += " ";
-           
-        }
+            if (i > 0){
+                acumulador += " "
+            }
             acumulador += arr[i]
         } else if (typeof arr[i] === "number"){
             if(acumulador == ""){
