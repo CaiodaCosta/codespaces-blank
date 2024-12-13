@@ -7,14 +7,16 @@ function reduce(acumulador, arr) {
        
         if (typeof arr[i] === "string"){
             if (acumulador !== ""){
+                
             acumulador += " ";
+           
         }
             acumulador += arr[i]
         } else if (typeof arr[i] === "number"){
             if(acumulador == ""){
                 acumulador = 0}
             acumulador += arr[i]
-                console.log(acumulador)
+                
             }
                 
             }
