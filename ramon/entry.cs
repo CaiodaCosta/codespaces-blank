@@ -40,4 +40,14 @@ public class Program
             yield return inputCondition.Invoke(currentObj);
         }
     }
+
+    private static T Reduce<T>(List<T> inputList, Func<T, T, T> inputCondition, T initialValue)
+    {
+        dynamic result = initialValue;
+
+        for (int count = 0; count < inputList.Count; count++)
+            result = inputCondition.Invoke(result, inputList[count]);
+
+        return result;
+    }
 }
